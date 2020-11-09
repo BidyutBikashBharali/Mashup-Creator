@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<title>WELCOME</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="icon" href="{{url_for('static', filename='icon.png')}}">
+
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="{{url_for('static', filename='w3.css')}}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+<style>
+body, h1,h2,h3,h5,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+
+/* Remove margins from "page content" on small screens */
+
+</style>
+
+<body class="w3-gray" >
+
+<div class="w3-padding-large" id="main">
+  
+
+
+<center>
+  <br><br>
+    <div class="w3-card-4 w3-padding w3-round-xlarge w3-light-blue w3-hide-small" style="max-width:500px;width:100%">
+      <img src="{{url_for('static', filename='icon.png')}}" class="w3-circle w3-blue w3-border-white w3-card-4" style="padding:6px" width="107" height="100">
+    <div  class="w3-container w3-card-4 w3-black  w3-panel w3-topbar w3-bottombar w3-rightbar w3-leftbar w3-border-blue w3-margin">
+      <div class="w3-left w3-text-white"><strong>Notification:</strong></div>
+      {% if get_flashed_messages() %}
+        {% for message in get_flashed_messages() %}
+            <br> <div class="w3-text-auqa w3-small"><i>{{message}}</i></div><br>
+        {% endfor %}
+      {% else %}
+            <br> <div class="w3-text-aqua w3-small"><i>Waiting For Notification...</i></div><br>
+      {% endif %}
+    </div>
+    <form method='POST' action="{{url_for('upload_file')}}"  enctype="multipart/form-data" class="w3-container w3-card-4 w3-black w3-text-blue w3-margin w3-panel w3-topbar w3-bottombar w3-rightbar w3-leftbar w3-border-blue">
+
+  
+    
+      
+      <div class="w3-row w3-section">
+  
+        <div class="w3-rest">
+      
+            <label class="w3-text-blue w3-round-large" for="file"><strong>Select Music</strong></label><br><br>
+            <input style="max-width:500px;width:80%" class="w3-round-large w3-border w3-border-blue" type="file" name="file"  autocomplete="off" multiple>
+            <!-- <input type="file"  name="file"  autocomplete="off" multiple required> This required act as a preventor when blank input is submitted. -->
+    
+        </div>
+       
+      </div>
+
+
+      <div class="w3-row w3-section">
+  
+        <div class="w3-rest">
+      
+            <label class="w3-text-blue" for="filename"><strong>Generated File Will Be Saved As:</strong></label><br><br>
+            <input style="max-width:500px;width:80%" class="w3-round-large w3-border w3-border-blue" type="text" pattern="[a-zA-Z]{4,}.mp3" title="File Name Must Contain Atleast 4 Letters and End With '.mp3'" name="filename" placeholder="   Eg: mashup.mp3" autocomplete="off" required>
+    
+        </div>
+       
+      </div>
+    
+       
+      <center><button class="w3-button w3-round w3-blue">Upload</button></center><br>
+
+    </form>
+
+    
+    </div>
+  
+  <br>
+
+</center>
+
+
+
+
+<center>
+  <br><br><br><br>
+  <div class="w3-card-4 w3-padding-64 w3-round w3-light-gray w3-hide-large w3-hide-medium">
+      
+    <h2 class="w3-text-blue"><b>Please increase the window size</b></h2>
+
+  </div>
+</center>
+
+
+
+
+</div>
+
+</body>
+</html>
